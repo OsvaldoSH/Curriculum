@@ -1,0 +1,245 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors:
+% https://github.com/PandaScience/FortySecondsCV/graphs/contributors
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	letterpaper,
+	% 9pt,
+	% sidesectionsize=Large,
+	% showframes,
+	% vline=2.2em,
+	 maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sidetextcolor=green,
+	 sectioncolor=cvgreen,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	 profilepicsize=4cm,
+	 profilepicborderwidth=2.5pt,
+	 profilepicstyle=profilecircle,
+	 profilepiczoom=1.2,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+	% logowidth=4.5cm,
+	% logospace=5mm,
+	% logoposition=before,
+	% sidebarplacement=right,
+]{fortysecondscv}
+
+% fine tune line spacing
+% \usepackage{setspace}
+% \setstretch{1.1}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage[nodayofweek,level]{datetime}
+
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+	% \newfontfamily\headingfont[Path=fonts/]{segoeuib.ttf} % use local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+
+% use a sans serif font as default
+\usepackage[sfdefault]{ClearSans}
+% \usepackage[sfdefault]{noto}
+
+% multi-language CV XeLaTeX and polyglossia (should also work with LuaLaTeX)
+% NOTE: breaks \pointskill, \membership and some spacings
+% \ifxetexorluatex
+% 	\usepackage{polyglossia}
+% 	\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.5]{Amiri}
+% 	\newfontfamily\englishfontsf{Clear Sans}
+% 	\setmainfont{Amiri}
+% 	\setdefaultlanguage{arabic}
+% 	\setotherlanguage{english}
+% \fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Osvaldo Salazar Hidalgo}
+% job title/career
+\cvjobtitle{Ingeniero Informático}
+
+%% optional information
+% profile picture
+\cvprofilepic{pics/Picture2.jpg}
+% logo picture
+%\cvlogopic{pics/logo_txt.png}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+%\newcommand{\mydate}{\formatdate{15}{1}{1994}}
+%\cvbirthday{\mydate}
+\cvcustomdata{\faCalendar*}{07 de Julio de 1997}
+
+% short address/location, use \newline if more than 1 line is required
+%\cvaddress{Tlatlauquitepec, Puebla, México}
+\cvcustomdata{\faMapMarker*}{Tlatlauquitepec, Puebla, México}
+% phone number
+\cvcustomdata{\faWhatsapp}{+52 233 104 6727}
+% personal website
+%\cvsite{https://pandascience.net}
+% email address
+\cvmail{osvaldo.sal.h@gmail.com}
+% pgp key
+%\cvkey{4096R/FF00FF00}{0xAABBCCDDFF00FF00}
+% any other custom entry
+\cvcustomdata{\faFlag}{Mexicano}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% include gosquare national flags from https://github.com/gosquared/flags/tree/master/flags/flags-iso;
+	% naming according to ISO 3166-1 alpha-2 country codes. Choose the 64 size version for flat and shiny.
+	\graphicspath{{pics/flags/shiny/}}
+
+	% social network accounts incl. proper hyperlinks
+	\sidesection{Sitios Web}
+		\begin{icontable}{2.5em}{1em}
+			\social{\faLinkedin}
+				{https://www.linkedin.com/in/osvaldo-salazar-hidalgo-994976227/}
+				{Osvaldo Salazar Hidalgo}
+			\social{\faGithub}
+				{https://github.com/OsvaldoSH}
+				{OsvaldoSH}
+			\social{\faTelegram}
+				{@OsvaldoSH}
+				{@OsvaldoSH}
+		\end{icontable}
+
+	\sidesection{Idiomas}
+		\pointskill{\flag{MX.png}}{Español}{5}
+		\pointskill{\flag{US.png}}{Inglés}{3}
+
+	\sidesection{Habilidades}
+	    \skill{\faAndroid}{Diseño de aplicaciones móviles en Android Studio.}
+		\skill{\faKeyboard}{Programación Orientada a  Objetos.}
+		\skill{\faHtml5}{Programación en HTML5}
+		\skill{\faCode}{Conocimientos básicos en Java Script}
+		\skill{\faLinux}{Usuario de Linux.}
+		\skill{\faLaptop}{Administración de Sistemas Operativos.}
+		\skill{\faJava}{Programación en Java}
+		\skill{\faDatabase}{Manejo de Bases de Datos SQLServer, MySql}
+		\skill{\faFileWord}{Manejo de la paquetería de Office.}
+		
+
+}
+%-------------------------------------------------------------------------------l}
+
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Objetivo Profesional}
+\cvsubsection{Desarrollar mi formación profesional y obtener experiencia en una organización que ofrezca perspectivas y promoción profesional aportando mis conocimientos y desplegando mis habilidades.}
+
+
+\cvsection{Formación Académica}
+\begin{cvtable}[1.5]
+    \cvitem{2016 -- 2021}{Ingeniero Informatico}{Instituto Tecnológico Superior de Zacapoaxtla}{Estudiante de la carrera de ingeniería informática, con conocimientos y uso de tecnologías de la información y comunicación emergentes para emprender el desarrollo de soluciones en las áreas donde se desempeñe profesionalmente. }
+   
+\end{cvtable}
+
+\cvsection{Areas de especialidad}
+\begin{cvtable}[1.5]
+    \cvpubitem{Innovación Tecnológica.}
+	{Capacidad de inovar en tecnologias existentes y poder aportar algun conocimiento para poder optimizar e inovar.}
+	{}{\faCogs}
+
+    \cvpubitem{Herramientas para el Diseño de Aplicaciones Web.}
+	{Uso de herramientas para el desarrollo de aplicaciones web. }
+	{}{\faCogs}
+	
+	\cvpubitem{Internet de las Cosas.}
+	{Conocimientos básicos para automatizar procesos mediante diferentes tipos de sensores.}
+	{}{\faCogs}
+	
+	\cvpubitem{Programación de Aplicaciones para Dispositivos Móviles.}
+	{Uso de la herramienta Android Studio con la cual puedo realizar aplicaciones enfocadas a dispositivos con el sistema operativo Androidd}
+	{}{\faCogs}
+
+%	\cvpubitem{Obtención de la función de transferencia de un motor de DC mediante el análisis de la curva de reacción}
+%	{Vergara Betancourt Ángel, Salazar Hidalgo Eduardo y Zapata Nava Óscar Javier}
+%	{Revista de Aplicación Científica y Técnica, ECORFAN}{2017}
+	
+	\cvpubitem{Cómputo en la Nube.}
+	{Conocimiento de herramientas alojadas en la nube con la cuales pudo desarrollar o vincular proyectos para optimizar y/o utilizar recursos externos por medio de internet.}
+	{}{\faCogs}
+\end{cvtable}
+
+
+\cvsection{Talleres}
+\begin{cvtable}[1.5]
+	\cvitem{2016}{Desarrollo de aplicaciones web.}{Instituto Tecnológico Superior de Zacapoaxtla}{}
+\end{cvtable}
+
+
+\cvsection{Nivel de inglés}
+\begin{cvtable}[1.5]
+	\cvitem{}{TOEFL ITP}{Test of English as a Foreign Language}{Puntaje obtenido: 438 de 677.}
+\end{cvtable}
+
+\end{document}
